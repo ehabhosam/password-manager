@@ -1,0 +1,13 @@
+<div class="container" style="padding: 20px">
+  <h1 class="">Generate a Secure Password</h1>
+  <p>
+    Having a strong password is essential in today's digital age to protect your
+    sensitive information from unauthorized access. Our simple password
+    generator tool allows you to create a unique and secure password
+    effortlessly. No more relying on weak and easily guessable passwords!
+  </p>
+  <button (click)="generatePassword()">Generate</button>
+  <div *ngIf="generatedPassword">
+    Generated Password: {{ generatedPassword }}
+  </div>
+</div>

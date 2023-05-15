@@ -1,0 +1,7 @@
+<h1>Password Manager</h1>
+<input [(ngModel)]="key" placeholder="Key" type="text" />
+<div *ngFor="let account of accounts">
+  <h3>{{ account.title }}</h3>
+  <p>Email: {{ account.email }}</p>
+  <p>Password: {{ account.password }}</p>
+</div>

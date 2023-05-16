@@ -1,7 +1,82 @@
-<h1>Password Manager</h1>
-<input [(ngModel)]="key" placeholder="Key" type="text" />
-<div *ngFor="let account of accounts">
-  <h3>{{ account.title }}</h3>
-  <p>Email: {{ account.email }}</p>
-  <p>Password: {{ account.password }}</p>
+<!-- Define the modal template -->
+<ng-template #newAccountModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add New Account</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (submit)="addAccount(modal)">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="newAccount.title"
+          name="title"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          [(ngModel)]="newAccount.email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="newAccount.password"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+</ng-template>
+
+<div class="main-container">
+  <!-- KEY -->
+  <input
+    class="key-input"
+    [(ngModel)]="key"
+    placeholder="Enter your encryption key here. (If you add a wrong key, you will show wrong passwords)"
+    type="password"
+  />
+
+  <h1>Accounts</h1>
+  <div class="buttons">
+    <!-- Add a button to trigger the modal -->
+    <button class="btn btn-primary" (click)="openModal(newAccountModal)">
+      Add Account
+    </button>
+
+    <!-- Clear accounts button -->
+    <button class="btn btn-danger ml-1" (click)="clearAccounts()">Clear</button>
+  </div>
+
+  <div *ngFor="let account of accounts" #accountsRef>
+    <app-account
+      [title]="account.title"
+      [email]="account.email"
+      [password]="account.password"
+      [key]="key"
+    ></app-account>
+  </div>
 </div>

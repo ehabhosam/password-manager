@@ -1,0 +1,8 @@
+span {
+    cursor: pointer;
+}
+
+.password-container {
+    display: flex; 
+    column-gap: 10px;
+}

@@ -1,0 +1,12 @@
+<h3>{{ title }}</h3>
+<p>Email: {{ email }}</p>
+
+<div class="password-container">
+  <ng-container *ngIf="!isShowingPassword; else elseBlock">
+    <p>Password: *************</p>
+  </ng-container>
+  <ng-template #elseBlock>
+    <p>Password: {{ decryptPassword(password, key) }}</p>
+  </ng-template>
+  <span (click)="togglePasswordVisibility()">👀</span>
+</div>

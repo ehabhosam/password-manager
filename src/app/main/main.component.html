@@ -71,7 +71,7 @@
     <button class="btn btn-danger ml-1" (click)="clearAccounts()">Clear</button>
   </div>
 
-  <div *ngFor="let account of accounts" #accountsRef>
+  <div style="width: 90%" *ngFor="let account of accounts" #accountsRef>
     <app-account
       [title]="account.title"
       [email]="account.email"

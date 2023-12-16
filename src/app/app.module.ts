@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { MainComponent } from './main/main.component';
 import { GenerateComponent } from './generate/generate.component';
-import { AccountComponent } from './account/account.component';
+import { AccountComponent } from './main/account/account.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
